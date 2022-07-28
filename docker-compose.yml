@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  api:
+    container_name: fishnv-api
+    depends_on:
+      db:
+        condition: service_healthy
+    build:
+      context: fishnv-api
+      dockerfile: Dockerfile.Dev
+    command: sh -c "npm install --force && npm run dev"
+    restart: on-failure
+    ports:
+      - 3000:3000
+    environment:
+      DBURI: ${DBURI}
+      NODE_ENV: ${NODE_ENV}
+    working_dir: /usr/src/app
+    volumes:
+      - ./fishnv-api:/usr/src/app
+
+  # fishnv database
+  db:
+    container_name: fishnv-db
+    image: supabase/postgres
+    command: postgres -c config_file=/etc/postgresql/postgresql.conf
+    restart: unless-stopped
+    ports:
+      - 55432:5432
+    environment:
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./fishnv-database/migrations:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: pg_isready -U=postgres  && psql ${DBURI} --list
+      interval: 10s
+      timeout: 5s
+      retries: 20

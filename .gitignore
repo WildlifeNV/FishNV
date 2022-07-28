@@ -1,0 +1,5 @@
+fishnv-api/
+fishnv-app/
+fishnv-database/
+
+.env
