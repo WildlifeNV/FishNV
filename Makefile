@@ -9,7 +9,7 @@ down:
 clone:
 	git clone https://github.com/WildlifeNV/fishnv-database.git
 	git clone -b next https://github.com/WildlifeNV/fishnv-api.git
-	# git clone -b next https://github.com/WildlifeNV/fishnv-app.git
+	git clone -b next https://github.com/WildlifeNV/fishnv-app.git
 
 clean:
 	rm -rf fishnv-api fishnv-app fishnv-database

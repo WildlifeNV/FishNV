@@ -1,6 +1,25 @@
 version: "3.8"
 
 services:
+  # front-end application
+  web:
+    container_name: fishnv-app
+    build:
+      context: fishnv-app
+      dockerfile: dev.Dockerfile
+    command: sh -c "npm install --force && npm run dev -- --host 0.0.0.0"
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+    environment:
+      VITE_APIURL: ${VITE_APIURL}
+      VITE_TILE_URL: ${VITE_TILE_URL}
+      VITE_MAPTILER_KEY: ${VITE_MAPTILER_KEY}
+    working_dir: /usr/src/app
+    volumes:
+      - ./fishnv-app:/usr/src/app
+  
+  # rest API
   api:
     container_name: fishnv-api
     depends_on:
@@ -12,7 +31,7 @@ services:
     command: sh -c "npm install --force && npm run dev"
     restart: on-failure
     ports:
-      - 3000:3000
+      - 3001:3000
     environment:
       DBURI: ${DBURI}
       NODE_ENV: ${NODE_ENV}
