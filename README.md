@@ -4,6 +4,7 @@ This repo will help you get the full version of FishNV running on you computer. 
 * Git
 * A copy of this repo on your computer/server/etc. ('git clone')
 * A version of Make (not required, but will make this a bit easier)
+* [maptiler account](https://www.maptiler.com/) 
 
 ## Getting Started
 

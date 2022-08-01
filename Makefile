@@ -1,4 +1,4 @@
-.PHONY: clone clean up down exec-api exec-db
+.PHONY: clone clean up down exec-api exec-app exec-db
 
 up:
 	docker-compose up --build
@@ -16,6 +16,9 @@ clean:
 
 exec-api:
 	docker compose exec -it api /bin/sh
+
+exec-app:
+	docker compose exec -it app /bin/sh
 
 exec-db:
 	docker compose exec -it -u postgres db /bin/sh
