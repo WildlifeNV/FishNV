@@ -51,6 +51,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - ./fishnv-database/migrations:/docker-entrypoint-initdb.d
+      - ./volumes/db/data:/var/lib/postgresql/data
     healthcheck:
       test: pg_isready -U=postgres  && psql ${DBURI} --list
       interval: 10s

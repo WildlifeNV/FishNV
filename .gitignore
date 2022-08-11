@@ -2,4 +2,6 @@ fishnv-api/
 fishnv-app/
 fishnv-database/
 
+volumes/db/data
+
 .env
