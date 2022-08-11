@@ -13,6 +13,9 @@ Once the required software is installed on your computer run the following to ge
 ```bash
 # clone the repo
 git clone https://github.com/WildlifeNV/fishnv.git
+cd FishNV
+cp example.env .env
+# add your maptiler key to the .env file after the cp command
 
 # clone the db, api, app into the current directory
 make clone
