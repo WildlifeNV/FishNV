@@ -26,9 +26,10 @@ make up
 
 ### A Few Things To Know
 
-* The Makefile is used to get you setup quickly. It clones the `next` branch from the API and application. 
-* The `docker-compose` file uses volumes to mount the application directories into the containers. Any changes to the source code is reflected in the containers and should trigger a reload of the application (or API).
-* The database uses a SQL file backup from the production database for the data. However, a materialized view of the nearby waters takes awhile to run. So I've limited it to 100 waters for development. Depending on the resources allocated to Docker the full query could take upwards of 13 minutes to run.
+> **Note**
+> * The Makefile is used to get you setup quickly. It clones the `next` branch from the API and application. 
+> * The `docker-compose` file uses volumes to mount the application directories into the containers. Any changes to the source code is reflected in the containers and should trigger a reload of the application (or API).
+> * The database uses a SQL file backup from the production database for the data. However, a materialized view of the nearby waters takes awhile to run. So I've limited it to 100 waters for development. Depending on the resources allocated to Docker the full query could take upwards of 13 minutes to run.
 
 ## Building From "Scratch"
 
