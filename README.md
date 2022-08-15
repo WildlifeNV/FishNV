@@ -24,8 +24,6 @@ make clone
 make up
 ```
 
-### A Few Things To Know
-
 > **Note**
 > * The Makefile is used to get you setup quickly. It clones the `next` branch from the API and application. 
 > * The `docker-compose` file uses volumes to mount the application directories into the containers. Any changes to the source code is reflected in the containers and should trigger a reload of the application (or API).
